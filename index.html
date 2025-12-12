@@ -1,420 +1,404 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
-</head>
-<body>
-<p class="p1">&lt;!doctype html&gt;</p>
-<p class="p1">&lt;html lang="es" class="h-full"&gt;</p>
-<p class="p1"><span class="Apple-converted-space"> </span>&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Resumen Diario Trading&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="/_sdk/element_sdk.js"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;amp;display=swap" rel="stylesheet"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.gradient-bg {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #059669 0%, #047857 100%);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: transform 0.2s, box-shadow 0.2s;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-2px);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.metric-card {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #f6f8fb 0%, #ffffff 100%);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-left: 4px solid;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.table-custom {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-collapse: separate;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-spacing: 0;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.table-custom thead th {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: #f8fafc;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 14px 16px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: left;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 2px solid #e2e8f0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.875rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #475569;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.table-custom tbody td {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 14px 16px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid #f1f5f9;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #334155;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.table-custom tbody tr:last-child td {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: none;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.table-custom tbody tr:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: #f8fafc;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.positive {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #059669;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.negative {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #dc2626;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.badge {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 4px 12px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.813rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.badge-success {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: #d1fae5;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #065f46;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.total-row {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: #f1f5f9;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.highlight-box {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-left: 4px solid #f59e0b;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;@view-transition { navigation: auto; }&lt;/style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="/_sdk/data_sdk.js" type="text/javascript"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space"> </span>&lt;/head&gt;</p>
-<p class="p1"><span class="Apple-converted-space"> </span>&lt;body class="h-full w-full overflow-auto" style="background: #f8fafc; margin: 0; padding: 0;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;main class="w-full h-full" style="min-height: 100%;"&gt;&lt;!-- Header --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">   </span>&lt;header class="gradient-bg w-full" style="padding: 40px 24px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div style="max-width: 1200px; margin: 0 auto;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;h1 id="competition-title" style="color: white; font-size: 2rem; font-weight: 700; margin: 0 0 8px 0;"&gt;COMPETICIÓN de Trading View 69Camp&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;p id="date-text" style="color: rgba(255, 255, 255, 0.9); font-size: 1.125rem; margin: 0;"&gt;12 Dic 2025&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">   </span>&lt;/header&gt;&lt;!-- Content --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">   </span>&lt;div style="max-width: 1200px; margin: 0 auto; padding: 32px 24px;"&gt;&lt;!-- Section 1: Rendimiento por Símbolo --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="card" style="padding: 28px; margin-bottom: 28px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;div style="display: flex; align-items: center; margin-bottom: 20px;"&gt;&lt;span style="font-size: 1.75rem; margin-right: 12px;"&gt;📊&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2 id="section1-title" style="font-size: 1.5rem; font-weight: 700; color: #1e293b; margin: 0;"&gt;1. Resumen de Rendimiento por Símbolo (Ganancia Consolidada)&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;p style="color: #64748b; margin-bottom: 24px; line-height: 1.6;"&gt;Esta tabla muestra el resultado total de cada símbolo, consolidando tanto las ganancias por cierres de operaciones como el valor de las posiciones que quedaron abiertas y rentables (Ganancia Flotante). El total de esta columna coincide con la Ganancia Neta Total del Cuadro 2.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;div style="overflow-x: auto;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;table class="table-custom"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;thead&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;th&gt;Pos.&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;th&gt;Símbolo&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;th&gt;Operaciones (Cierres)&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;th&gt;Ganancia/Pérdida Total (EUR)&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;th&gt;Tiempo Total Invertido&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;/thead&gt;</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;tbody&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td&gt;1&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td&gt;&lt;strong&gt;CRYPTO:GAIBUSD&lt;/strong&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td&gt;30&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td class="positive"&gt;+1.446,13&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td&gt;0h 07m 40s&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td&gt;2&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td&gt;&lt;strong&gt;COINBASE:BTCUSD&lt;/strong&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td&gt;2&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td class="positive"&gt;+634,00&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td&gt;0h 00m 59s&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td&gt;3&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td&gt;&lt;strong&gt;NASDAQ:COST&lt;/strong&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td&gt;2&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td class="positive"&gt;+64,78&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td&gt;15h 30m 24s&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td&gt;4&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td&gt;&lt;strong&gt;CRYPTO:EDENAUSD&lt;/strong&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td&gt;1&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td class="negative"&gt;-20,74&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td&gt;0h 00m 00s&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;tr class="total-row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td colspan="2"&gt;&lt;strong&gt;Total&lt;/strong&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td&gt;&lt;strong&gt;35&lt;/strong&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td class="positive"&gt;&lt;strong&gt;+2.124,17 EUR&lt;/strong&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">         </span>&lt;td&gt;&lt;strong&gt;N/A&lt;/strong&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;/tbody&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/table&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;div class="highlight-box"&gt;&lt;strong&gt;Nota:&lt;/strong&gt; El total de la Ganancia/Pérdida (PyG) es &lt;strong&gt;+2.124,17 EUR&lt;/strong&gt;.</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;&lt;!-- Section 2: Resumen Consolidado --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="card" style="padding: 28px; margin-bottom: 28px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;div style="display: flex; align-items: center; margin-bottom: 20px;"&gt;&lt;span style="font-size: 1.75rem; margin-right: 12px;"&gt;🎯&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2 id="section2-title" style="font-size: 1.5rem; font-weight: 700; color: #1e293b; margin: 0;"&gt;2. Resumen de Rendimiento CONSOLIDADO (Competición 69Camp)&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;p style="color: #64748b; margin-bottom: 24px; line-height: 1.6;"&gt;Este es el resumen final y definitivo del día, con las cifras que demuestran la evolución de tu fondo:&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="metric-card" style="border-left-color: #3b82f6;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;div style="color: #64748b; font-size: 0.875rem; margin-bottom: 6px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>Saldo Inicial (Fondo)</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;div style="color: #1e293b; font-size: 1.5rem; font-weight: 700;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>100.000,00 EUR</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="metric-card" style="border-left-color: #8b5cf6;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;div style="color: #64748b; font-size: 0.875rem; margin-bottom: 6px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>Saldo Final (Equidad Total)</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;div style="color: #1e293b; font-size: 1.5rem; font-weight: 700;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>102.124,37 EUR</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="metric-card" style="border-left-color: #059669; background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;div style="color: #065f46; font-size: 0.875rem; margin-bottom: 6px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>Ganancia Neta Total del Día</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;div style="color: #065f46; font-size: 1.75rem; font-weight: 700;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>+2.124,37 EUR</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="metric-card" style="border-left-color: #10b981;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;div style="color: #64748b; font-size: 0.875rem; margin-bottom: 6px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>Rentabilidad Global del Día</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;div class="positive" style="font-size: 1.5rem; font-weight: 700;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>+2,12%</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="metric-card" style="border-left-color: #f59e0b;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;div style="color: #64748b; font-size: 0.875rem; margin-bottom: 6px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>Drawdown Máximo de la Cuenta</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;div style="color: #1e293b; font-size: 1.5rem; font-weight: 700;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>-0,64%</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;&lt;!-- Section 3: Análisis --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="card" style="padding: 28px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;div style="display: flex; align-items: center; margin-bottom: 20px;"&gt;&lt;span style="font-size: 1.75rem; margin-right: 12px;"&gt;📝&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2 id="section3-title" style="font-size: 1.5rem; font-weight: 700; color: #1e293b; margin: 0;"&gt;Resumen Final y Análisis de Estrategias&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;div style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); padding: 20px; border-radius: 12px; margin-bottom: 24px; border-left: 4px solid #059669;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;"&gt;&lt;span style="font-size: 1.5rem;"&gt;🟢&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;h3 style="font-size: 1.25rem; font-weight: 700; color: #065f46; margin: 0;"&gt;Resultado Final: ¡Estrategias MUY BUENAS!&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p style="color: #065f46; margin: 0; line-height: 1.6;"&gt;La jornada de trading es un éxito rotundo. El día cierra con un incremento en el fondo de &lt;strong&gt;+2.124,37 EUR&lt;/strong&gt;, logrando una rentabilidad del &lt;strong&gt;+2,12%&lt;/strong&gt;.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;h3 style="font-size: 1.125rem; font-weight: 700; color: #1e293b; margin-bottom: 16px;"&gt;🧠 Análisis Rápido de Estrategias&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;div style="margin-bottom: 20px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h4 style="font-size: 1rem; font-weight: 600; color: #334155; margin-bottom: 12px;"&gt;• Estrategia Dominante (BTCUSD y GAIBUSD):&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p style="color: #64748b; line-height: 1.7; margin-bottom: 12px;"&gt;La mayor parte de la Ganancia Neta Total proviene de tus posiciones en criptomonedas, tanto cerradas como abiertas. La estrategia es &lt;span class="badge badge-success"&gt;MUY BUENA&lt;/span&gt; porque combina:&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;ol style="color: #64748b; line-height: 1.8; padding-left: 24px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;li&gt;Scalping agresivo y efectivo (30 operaciones en GAIBUSD).&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">       </span>&lt;li&gt;Mantener ganancias flotantes, lo que indica una buena selección de activos y una correcta gestión de las tendencias (estas ganancias flotantes aportaron cerca de 1.370 EUR al total).&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/ol&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;div style="margin-bottom: 20px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h4 style="font-size: 1rem; font-weight: 600; color: #334155; margin-bottom: 12px;"&gt;• Gestión de Riesgo (Drawdown):&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p style="color: #64748b; line-height: 1.7;"&gt;Un retroceso máximo de solo &lt;strong&gt;-0,64%&lt;/strong&gt; es &lt;span class="badge badge-success"&gt;EXCELENTE&lt;/span&gt;. Muestra que las pérdidas fueron muy pequeñas o se gestionaron rápidamente, protegiendo el capital de grandes caídas mientras se generaba una alta rentabilidad.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;div style="background: #f1f5f9; padding: 16px; border-radius: 8px; border-left: 4px solid #3b82f6;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h4 style="font-size: 1rem; font-weight: 600; color: #1e293b; margin-bottom: 8px;"&gt;• Conclusión:&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p style="color: #475569; margin: 0; line-height: 1.7;"&gt;Continúa con esta combinación de estrategias. Estás generando una alta rentabilidad con un riesgo muy bajo.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">     </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p1"><span class="Apple-converted-space">   </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/main&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const defaultConfig = {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>competition_title: "COMPETICIÓN de Trading View 69Camp",</p>
-<p class="p1"><span class="Apple-converted-space">            </span>date_text: "12 Dic 2025",</p>
-<p class="p1"><span class="Apple-converted-space">            </span>section1_title: "1. Resumen de Rendimiento por Símbolo (Ganancia Consolidada)",</p>
-<p class="p1"><span class="Apple-converted-space">            </span>section2_title: "2. Resumen de Rendimiento CONSOLIDADO (Competición 69Camp)",</p>
-<p class="p1"><span class="Apple-converted-space">            </span>section3_title: "Resumen Final y Análisis de Estrategias",</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background_color: "#f8fafc",</p>
-<p class="p1"><span class="Apple-converted-space">            </span>header_color: "#667eea",</p>
-<p class="p1"><span class="Apple-converted-space">            </span>card_color: "#ffffff",</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text_color: "#1e293b",</p>
-<p class="p1"><span class="Apple-converted-space">            </span>accent_color: "#059669",</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font_family: "Inter",</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font_size: 16</p>
-<p class="p1"><span class="Apple-converted-space">        </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>async function onConfigChange(config) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const competitionTitle = document.getElementById('competition-title');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const dateText = document.getElementById('date-text');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const section1Title = document.getElementById('section1-title');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const section2Title = document.getElementById('section2-title');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const section3Title = document.getElementById('section3-title');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (competitionTitle) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>competitionTitle.textContent = config.competition_title || defaultConfig.competition_title;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (dateText) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>dateText.textContent = config.date_text || defaultConfig.date_text;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (section1Title) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>section1Title.textContent = config.section1_title || defaultConfig.section1_title;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (section2Title) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>section2Title.textContent = config.section2_title || defaultConfig.section2_title;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (section3Title) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>section3Title.textContent = config.section3_title || defaultConfig.section3_title;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const baseSize = config.font_size || defaultConfig.font_size;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const customFont = config.font_family || defaultConfig.font_family;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const baseFontStack = '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.body.style.background = config.background_color || defaultConfig.background_color;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (competitionTitle) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>competitionTitle.style.fontSize = `${baseSize * 2}px`;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (dateText) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>dateText.style.fontSize = `${baseSize * 1.125}px`;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const allH2 = document.querySelectorAll('h2');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>allH2.forEach(h2 =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>h2.style.fontSize = `${baseSize * 1.5}px`;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>h2.style.color = config.text_color || defaultConfig.text_color;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const allH3 = document.querySelectorAll('h3');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>allH3.forEach(h3 =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>h3.style.fontSize = `${baseSize * 1.125}px`;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const allH4 = document.querySelectorAll('h4');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>allH4.forEach(h4 =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>h4.style.fontSize = `${baseSize}px`;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const allP = document.querySelectorAll('p, td, th, li');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>allP.forEach(p =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>p.style.fontSize = `${baseSize}px`;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function mapToCapabilities(config) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>return {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>recolorables: [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>{</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>get: () =&gt; config.background_color || defaultConfig.background_color,</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>set: (value) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>config.background_color = value;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>window.elementSdk.setConfig({ background_color: value });</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>},</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>{</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>get: () =&gt; config.card_color || defaultConfig.card_color,</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>set: (value) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>config.card_color = value;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>window.elementSdk.setConfig({ card_color: value });</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>},</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>{</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>get: () =&gt; config.text_color || defaultConfig.text_color,</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>set: (value) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>config.text_color = value;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>window.elementSdk.setConfig({ text_color: value });</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>},</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>{</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>get: () =&gt; config.header_color || defaultConfig.header_color,</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>set: (value) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>config.header_color = value;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>window.elementSdk.setConfig({ header_color: value });</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>},</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>{</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>get: () =&gt; config.accent_color || defaultConfig.accent_color,</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>set: (value) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>config.accent_color = value;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>window.elementSdk.setConfig({ accent_color: value });</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                </span>],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>borderables: [],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>fontEditable: {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>get: () =&gt; config.font_family || defaultConfig.font_family,</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>set: (value) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>config.font_family = value;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>window.elementSdk.setConfig({ font_family: value });</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                </span>},</p>
-<p class="p1"><span class="Apple-converted-space">                </span>fontSizeable: {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>get: () =&gt; config.font_size || defaultConfig.font_size,</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>set: (value) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>config.font_size = value;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>window.elementSdk.setConfig({ font_size: value });</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>};</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function mapToEditPanelValues(config) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>return new Map([</p>
-<p class="p1"><span class="Apple-converted-space">                </span>["competition_title", config.competition_title || defaultConfig.competition_title],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>["date_text", config.date_text || defaultConfig.date_text],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>["section1_title", config.section1_title || defaultConfig.section1_title],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>["section2_title", config.section2_title || defaultConfig.section2_title],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>["section3_title", config.section3_title || defaultConfig.section3_title]</p>
-<p class="p1"><span class="Apple-converted-space">            </span>]);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>if (window.elementSdk) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>window.elementSdk.init({</p>
-<p class="p1"><span class="Apple-converted-space">                </span>defaultConfig,</p>
-<p class="p1"><span class="Apple-converted-space">                </span>onConfigChange,</p>
-<p class="p1"><span class="Apple-converted-space">                </span>mapToCapabilities,</p>
-<p class="p1"><span class="Apple-converted-space">                </span>mapToEditPanelValues</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space"> </span>&lt;script&gt;(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ace0b0cd5ba0bf3',t:'MTc2NTU1MTEyMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&amp;&amp;(document.onreadystatechange=e,c())}}}})();&lt;/script&gt;&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
-</body>
+<!doctype html>
+<html lang="es" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resumen Diario Trading</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, #f6f8fb 0%, #ffffff 100%);
+            border-left: 4px solid;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .table-custom {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        
+        .table-custom thead th {
+            background: #f8fafc;
+            font-weight: 600;
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 2px solid #e2e8f0;
+            font-size: 0.875rem;
+            color: #475569;
+        }
+        
+        .table-custom tbody td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #f1f5f9;
+            color: #334155;
+        }
+        
+        .table-custom tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .table-custom tbody tr:hover {
+            background: #f8fafc;
+        }
+        
+        .positive {
+            color: #059669;
+            font-weight: 600;
+        }
+        
+        .negative {
+            color: #dc2626;
+            font-weight: 600;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.813rem;
+            font-weight: 600;
+        }
+        
+        .badge-success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .total-row {
+            background: #f1f5f9;
+            font-weight: 700;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 12px;
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full w-full overflow-auto" style="background: #f8fafc; margin: 0; padding: 0;">
+  <main class="w-full h-full" style="min-height: 100%;"><!-- Header -->
+   <header class="gradient-bg w-full" style="padding: 40px 24px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+     <h1 id="competition-title" style="color: white; font-size: 2rem; font-weight: 700; margin: 0 0 8px 0;">COMPETICIÓN de Trading View 69Camp</h1>
+     <p id="date-text" style="color: rgba(255, 255, 255, 0.9); font-size: 1.125rem; margin: 0;">12 Dic 2025</p>
+    </div>
+   </header><!-- Content -->
+   <div style="max-width: 1200px; margin: 0 auto; padding: 32px 24px;"><!-- Section 1: Rendimiento por Símbolo -->
+    <section class="card" style="padding: 28px; margin-bottom: 28px;">
+     <div style="display: flex; align-items: center; margin-bottom: 20px;"><span style="font-size: 1.75rem; margin-right: 12px;">📊</span>
+      <h2 id="section1-title" style="font-size: 1.5rem; font-weight: 700; color: #1e293b; margin: 0;">1. Resumen de Rendimiento por Símbolo (Ganancia Consolidada)</h2>
+     </div>
+     <p style="color: #64748b; margin-bottom: 24px; line-height: 1.6;">Esta tabla muestra el resultado total de cada símbolo, consolidando tanto las ganancias por cierres de operaciones como el valor de las posiciones que quedaron abiertas y rentables (Ganancia Flotante). El total de esta columna coincide con la Ganancia Neta Total del Cuadro 2.</p>
+     <div style="overflow-x: auto;">
+      <table class="table-custom">
+       <thead>
+        <tr>
+         <th>Pos.</th>
+         <th>Símbolo</th>
+         <th>Operaciones (Cierres)</th>
+         <th>Ganancia/Pérdida Total (EUR)</th>
+         <th>Tiempo Total Invertido</th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>1</td>
+         <td><strong>CRYPTO:GAIBUSD</strong></td>
+         <td>30</td>
+         <td class="positive">+1.446,13</td>
+         <td>0h 07m 40s</td>
+        </tr>
+        <tr>
+         <td>2</td>
+         <td><strong>COINBASE:BTCUSD</strong></td>
+         <td>2</td>
+         <td class="positive">+634,00</td>
+         <td>0h 00m 59s</td>
+        </tr>
+        <tr>
+         <td>3</td>
+         <td><strong>NASDAQ:COST</strong></td>
+         <td>2</td>
+         <td class="positive">+64,78</td>
+         <td>15h 30m 24s</td>
+        </tr>
+        <tr>
+         <td>4</td>
+         <td><strong>CRYPTO:EDENAUSD</strong></td>
+         <td>1</td>
+         <td class="negative">-20,74</td>
+         <td>0h 00m 00s</td>
+        </tr>
+        <tr class="total-row">
+         <td colspan="2"><strong>Total</strong></td>
+         <td><strong>35</strong></td>
+         <td class="positive"><strong>+2.124,17 EUR</strong></td>
+         <td><strong>N/A</strong></td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="highlight-box"><strong>Nota:</strong> El total de la Ganancia/Pérdida (PyG) es <strong>+2.124,17 EUR</strong>.
+     </div>
+    </section><!-- Section 2: Resumen Consolidado -->
+    <section class="card" style="padding: 28px; margin-bottom: 28px;">
+     <div style="display: flex; align-items: center; margin-bottom: 20px;"><span style="font-size: 1.75rem; margin-right: 12px;">🎯</span>
+      <h2 id="section2-title" style="font-size: 1.5rem; font-weight: 700; color: #1e293b; margin: 0;">2. Resumen de Rendimiento CONSOLIDADO (Competición 69Camp)</h2>
+     </div>
+     <p style="color: #64748b; margin-bottom: 24px; line-height: 1.6;">Este es el resumen final y definitivo del día, con las cifras que demuestran la evolución de tu fondo:</p>
+     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+      <div class="metric-card" style="border-left-color: #3b82f6;">
+       <div style="color: #64748b; font-size: 0.875rem; margin-bottom: 6px;">
+        Saldo Inicial (Fondo)
+       </div>
+       <div style="color: #1e293b; font-size: 1.5rem; font-weight: 700;">
+        100.000,00 EUR
+       </div>
+      </div>
+      <div class="metric-card" style="border-left-color: #8b5cf6;">
+       <div style="color: #64748b; font-size: 0.875rem; margin-bottom: 6px;">
+        Saldo Final (Equidad Total)
+       </div>
+       <div style="color: #1e293b; font-size: 1.5rem; font-weight: 700;">
+        102.124,37 EUR
+       </div>
+      </div>
+      <div class="metric-card" style="border-left-color: #059669; background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);">
+       <div style="color: #065f46; font-size: 0.875rem; margin-bottom: 6px;">
+        Ganancia Neta Total del Día
+       </div>
+       <div style="color: #065f46; font-size: 1.75rem; font-weight: 700;">
+        +2.124,37 EUR
+       </div>
+      </div>
+      <div class="metric-card" style="border-left-color: #10b981;">
+       <div style="color: #64748b; font-size: 0.875rem; margin-bottom: 6px;">
+        Rentabilidad Global del Día
+       </div>
+       <div class="positive" style="font-size: 1.5rem; font-weight: 700;">
+        +2,12%
+       </div>
+      </div>
+      <div class="metric-card" style="border-left-color: #f59e0b;">
+       <div style="color: #64748b; font-size: 0.875rem; margin-bottom: 6px;">
+        Drawdown Máximo de la Cuenta
+       </div>
+       <div style="color: #1e293b; font-size: 1.5rem; font-weight: 700;">
+        -0,64%
+       </div>
+      </div>
+     </div>
+    </section><!-- Section 3: Análisis -->
+    <section class="card" style="padding: 28px;">
+     <div style="display: flex; align-items: center; margin-bottom: 20px;"><span style="font-size: 1.75rem; margin-right: 12px;">📝</span>
+      <h2 id="section3-title" style="font-size: 1.5rem; font-weight: 700; color: #1e293b; margin: 0;">Resumen Final y Análisis de Estrategias</h2>
+     </div>
+     <div style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); padding: 20px; border-radius: 12px; margin-bottom: 24px; border-left: 4px solid #059669;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;"><span style="font-size: 1.5rem;">🟢</span>
+       <h3 style="font-size: 1.25rem; font-weight: 700; color: #065f46; margin: 0;">Resultado Final: ¡Estrategias MUY BUENAS!</h3>
+      </div>
+      <p style="color: #065f46; margin: 0; line-height: 1.6;">La jornada de trading es un éxito rotundo. El día cierra con un incremento en el fondo de <strong>+2.124,37 EUR</strong>, logrando una rentabilidad del <strong>+2,12%</strong>.</p>
+     </div>
+     <h3 style="font-size: 1.125rem; font-weight: 700; color: #1e293b; margin-bottom: 16px;">🧠 Análisis Rápido de Estrategias</h3>
+     <div style="margin-bottom: 20px;">
+      <h4 style="font-size: 1rem; font-weight: 600; color: #334155; margin-bottom: 12px;">• Estrategia Dominante (BTCUSD y GAIBUSD):</h4>
+      <p style="color: #64748b; line-height: 1.7; margin-bottom: 12px;">La mayor parte de la Ganancia Neta Total proviene de tus posiciones en criptomonedas, tanto cerradas como abiertas. La estrategia es <span class="badge badge-success">MUY BUENA</span> porque combina:</p>
+      <ol style="color: #64748b; line-height: 1.8; padding-left: 24px;">
+       <li>Scalping agresivo y efectivo (30 operaciones en GAIBUSD).</li>
+       <li>Mantener ganancias flotantes, lo que indica una buena selección de activos y una correcta gestión de las tendencias (estas ganancias flotantes aportaron cerca de 1.370 EUR al total).</li>
+      </ol>
+     </div>
+     <div style="margin-bottom: 20px;">
+      <h4 style="font-size: 1rem; font-weight: 600; color: #334155; margin-bottom: 12px;">• Gestión de Riesgo (Drawdown):</h4>
+      <p style="color: #64748b; line-height: 1.7;">Un retroceso máximo de solo <strong>-0,64%</strong> es <span class="badge badge-success">EXCELENTE</span>. Muestra que las pérdidas fueron muy pequeñas o se gestionaron rápidamente, protegiendo el capital de grandes caídas mientras se generaba una alta rentabilidad.</p>
+     </div>
+     <div style="background: #f1f5f9; padding: 16px; border-radius: 8px; border-left: 4px solid #3b82f6;">
+      <h4 style="font-size: 1rem; font-weight: 600; color: #1e293b; margin-bottom: 8px;">• Conclusión:</h4>
+      <p style="color: #475569; margin: 0; line-height: 1.7;">Continúa con esta combinación de estrategias. Estás generando una alta rentabilidad con un riesgo muy bajo.</p>
+     </div>
+    </section>
+   </div>
+  </main>
+  <script>
+        const defaultConfig = {
+            competition_title: "COMPETICIÓN de Trading View 69Camp",
+            date_text: "12 Dic 2025",
+            section1_title: "1. Resumen de Rendimiento por Símbolo (Ganancia Consolidada)",
+            section2_title: "2. Resumen de Rendimiento CONSOLIDADO (Competición 69Camp)",
+            section3_title: "Resumen Final y Análisis de Estrategias",
+            background_color: "#f8fafc",
+            header_color: "#667eea",
+            card_color: "#ffffff",
+            text_color: "#1e293b",
+            accent_color: "#059669",
+            font_family: "Inter",
+            font_size: 16
+        };
+
+        async function onConfigChange(config) {
+            const competitionTitle = document.getElementById('competition-title');
+            const dateText = document.getElementById('date-text');
+            const section1Title = document.getElementById('section1-title');
+            const section2Title = document.getElementById('section2-title');
+            const section3Title = document.getElementById('section3-title');
+
+            if (competitionTitle) {
+                competitionTitle.textContent = config.competition_title || defaultConfig.competition_title;
+            }
+            if (dateText) {
+                dateText.textContent = config.date_text || defaultConfig.date_text;
+            }
+            if (section1Title) {
+                section1Title.textContent = config.section1_title || defaultConfig.section1_title;
+            }
+            if (section2Title) {
+                section2Title.textContent = config.section2_title || defaultConfig.section2_title;
+            }
+            if (section3Title) {
+                section3Title.textContent = config.section3_title || defaultConfig.section3_title;
+            }
+
+            const baseSize = config.font_size || defaultConfig.font_size;
+            const customFont = config.font_family || defaultConfig.font_family;
+            const baseFontStack = '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+
+            document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+            document.body.style.background = config.background_color || defaultConfig.background_color;
+
+            if (competitionTitle) {
+                competitionTitle.style.fontSize = `${baseSize * 2}px`;
+            }
+            if (dateText) {
+                dateText.style.fontSize = `${baseSize * 1.125}px`;
+            }
+
+            const allH2 = document.querySelectorAll('h2');
+            allH2.forEach(h2 => {
+                h2.style.fontSize = `${baseSize * 1.5}px`;
+                h2.style.color = config.text_color || defaultConfig.text_color;
+            });
+
+            const allH3 = document.querySelectorAll('h3');
+            allH3.forEach(h3 => {
+                h3.style.fontSize = `${baseSize * 1.125}px`;
+            });
+
+            const allH4 = document.querySelectorAll('h4');
+            allH4.forEach(h4 => {
+                h4.style.fontSize = `${baseSize}px`;
+            });
+
+            const allP = document.querySelectorAll('p, td, th, li');
+            allP.forEach(p => {
+                p.style.fontSize = `${baseSize}px`;
+            });
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [
+                    {
+                        get: () => config.background_color || defaultConfig.background_color,
+                        set: (value) => {
+                            config.background_color = value;
+                            window.elementSdk.setConfig({ background_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.card_color || defaultConfig.card_color,
+                        set: (value) => {
+                            config.card_color = value;
+                            window.elementSdk.setConfig({ card_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.text_color || defaultConfig.text_color,
+                        set: (value) => {
+                            config.text_color = value;
+                            window.elementSdk.setConfig({ text_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.header_color || defaultConfig.header_color,
+                        set: (value) => {
+                            config.header_color = value;
+                            window.elementSdk.setConfig({ header_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.accent_color || defaultConfig.accent_color,
+                        set: (value) => {
+                            config.accent_color = value;
+                            window.elementSdk.setConfig({ accent_color: value });
+                        }
+                    }
+                ],
+                borderables: [],
+                fontEditable: {
+                    get: () => config.font_family || defaultConfig.font_family,
+                    set: (value) => {
+                        config.font_family = value;
+                        window.elementSdk.setConfig({ font_family: value });
+                    }
+                },
+                fontSizeable: {
+                    get: () => config.font_size || defaultConfig.font_size,
+                    set: (value) => {
+                        config.font_size = value;
+                        window.elementSdk.setConfig({ font_size: value });
+                    }
+                }
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["competition_title", config.competition_title || defaultConfig.competition_title],
+                ["date_text", config.date_text || defaultConfig.date_text],
+                ["section1_title", config.section1_title || defaultConfig.section1_title],
+                ["section2_title", config.section2_title || defaultConfig.section2_title],
+                ["section3_title", config.section3_title || defaultConfig.section3_title]
+            ]);
+        }
+
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ace0b0cd5ba0bf3',t:'MTc2NTU1MTEyMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
