@@ -6,34 +6,45 @@
   <title>Resumen Diario Trading</title>
   <script src="/_sdk/element_sdk.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <style>
         body {
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Chakra Petch', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         
         .gradient-bg {
-            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            background: repeating-linear-gradient(
+                0deg,
+                #2d5016 0px,
+                #2d5016 8px,
+                #3d6b1f 8px,
+                #3d6b1f 16px
+            );
+            border-bottom: 6px solid #1a3009;
+            box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.3);
         }
         
         .card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            transition: transform 0.2s, box-shadow 0.2s;
+            background: #ffffff;
+            border: 3px solid #2a2a2a;
+            box-shadow: 
+                6px 6px 0 rgba(0, 0, 0, 0.15);
+            border-radius: 0;
+            transition: transform 0.2s;
         }
         
         .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+            transform: translate(2px, 2px);
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
         }
         
         .metric-card {
-            background: linear-gradient(135deg, #f6f8fb 0%, #ffffff 100%);
-            border-left: 4px solid;
+            background: #f8fafc;
+            border: 3px solid #2a2a2a;
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 0;
         }
         
         .table-custom {
@@ -43,23 +54,25 @@
         }
         
         .table-custom thead th {
-            background: #f8fafc;
+            background: #334155;
+            color: #ffffff;
             font-weight: 600;
             padding: 14px 16px;
             text-align: left;
-            border-bottom: 2px solid #e2e8f0;
+            border: 2px solid #1e293b;
             font-size: 0.875rem;
-            color: #475569;
         }
         
         .table-custom tbody td {
             padding: 14px 16px;
-            border-bottom: 1px solid #f1f5f9;
-            color: #334155;
+            border: 1px solid #e2e8f0;
+            color: #1e293b;
+            background: #ffffff;
+            font-size: 0.938rem;
         }
         
         .table-custom tbody tr:last-child td {
-            border-bottom: none;
+            border-bottom: 1px solid #e2e8f0;
         }
         
         .table-custom tbody tr:hover {
@@ -68,57 +81,88 @@
         
         .positive {
             color: #059669;
-            font-weight: 600;
+            font-weight: 700;
         }
         
         .negative {
             color: #dc2626;
-            font-weight: 600;
+            font-weight: 700;
         }
         
         .badge {
             display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
+            padding: 6px 14px;
+            border-radius: 0;
             font-size: 0.813rem;
-            font-weight: 600;
+            font-weight: 700;
+            border: 2px solid #000;
+            box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
         }
         
         .badge-success {
-            background: #d1fae5;
-            color: #065f46;
+            background: #4ade80;
+            color: #052e16;
         }
         
         .total-row {
-            background: #f1f5f9;
+            background: #475569 !important;
             font-weight: 700;
+            color: #ffffff !important;
+        }
+        
+        .total-row td {
+            background: #475569 !important;
+            color: #ffffff !important;
+            border-color: #334155 !important;
         }
         
         .highlight-box {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border-left: 4px solid #f59e0b;
-            padding: 16px;
-            border-radius: 8px;
-            margin-top: 12px;
+            background: #fef3c7;
+            border: 3px solid #2a2a2a;
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+            padding: 18px;
+            border-radius: 0;
+            margin-top: 16px;
+            font-size: 0.938rem;
         }
     </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
- <body class="h-full w-full overflow-auto" style="background: #f8fafc; margin: 0; padding: 0;">
+ <body class="h-full w-full overflow-auto" style="background: #e2e8f0; margin: 0; padding: 0;">
   <main class="w-full h-full" style="min-height: 100%;"><!-- Header -->
    <header class="gradient-bg w-full" style="padding: 40px 24px;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-     <h1 id="competition-title" style="color: white; font-size: 2rem; font-weight: 700; margin: 0 0 8px 0;">COMPETICIÓN de Trading View 69Camp</h1>
-     <p id="date-text" style="color: rgba(255, 255, 255, 0.9); font-size: 1.125rem; margin: 0;">12 Dic 2025</p>
+    <div style="max-width: 1200px; margin: 0 auto;"><!-- Logo -->
+     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 28px;">
+      <svg width="50" height="50" viewbox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg"><defs>
+        <lineargradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+         <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+         <stop offset="50%" style="stop-color:#f59e0b;stop-opacity:1" />
+         <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+        </lineargradient>
+       </defs> <!-- Marco cuadrado exterior --> <rect x="5" y="5" width="60" height="60" fill="none" stroke="url(#goldGradient)" stroke-width="3" /> <!-- Fondo interior blanco --> <rect x="8" y="8" width="54" height="54" fill="white" opacity="0.95" /> <!-- Letra A geom��trica --> <rect x="12" y="20" width="5" height="28" fill="url(#goldGradient)" /> <rect x="25" y="20" width="5" height="28" fill="url(#goldGradient)" /> <rect x="12" y="20" width="18" height="5" fill="url(#goldGradient)" /> <rect x="14" y="32" width="14" height="4" fill="url(#goldGradient)" /> <!-- Símbolo & tradicional --> <text x="31" y="45" font-family="Georgia, serif" font-size="14" font-weight="bold" fill="#64748b" font-style="italic">
+        &amp;
+       </text> <!-- Letra P geométrica --> <rect x="40" y="20" width="5" height="28" fill="url(#goldGradient)" /> <rect x="40" y="20" width="14" height="5" fill="url(#goldGradient)" /> <rect x="40" y="33" width="14" height="5" fill="url(#goldGradient)" /> <rect x="49" y="20" width="5" height="18" fill="url(#goldGradient)" /> <!-- Detalles decorativos en esquinas --> <rect x="11" y="11" width="2" height="2" fill="url(#goldGradient)" opacity="0.7" /> <rect x="57" y="11" width="2" height="2" fill="url(#goldGradient)" opacity="0.7" /> <rect x="11" y="57" width="2" height="2" fill="url(#goldGradient)" opacity="0.7" /> <rect x="57" y="57" width="2" height="2" fill="url(#goldGradient)" opacity="0.7" />
+      </svg>
+      <div>
+       <div style="color: white; font-size: 1rem; font-weight: 700; line-height: 1.2;">
+        Abril &amp; Prada <span style="opacity: 0.9;">Investments</span>
+       </div>
+       <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.625rem; margin-top: 2px; letter-spacing: 1.5px; text-transform: uppercase;">
+        Trading Excellence
+       </div>
+      </div>
+     </div>
+     <h1 id="competition-title" style="color: #fef08a; font-size: 2.5rem; font-weight: 700; margin: 0 0 8px 0; text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5); line-height: 1.3;">COMPETICIÓN de Trading View 69Camp</h1>
+     <p id="date-text" style="color: rgba(255, 255, 255, 0.95); font-size: 1.125rem; margin: 0; font-weight: 600; text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);">12 Dic 2025</p>
     </div>
    </header><!-- Content -->
    <div style="max-width: 1200px; margin: 0 auto; padding: 32px 24px;"><!-- Section 1: Rendimiento por Símbolo -->
     <section class="card" style="padding: 28px; margin-bottom: 28px;">
-     <div style="display: flex; align-items: center; margin-bottom: 20px;"><span style="font-size: 1.75rem; margin-right: 12px;">📊</span>
-      <h2 id="section1-title" style="font-size: 1.5rem; font-weight: 700; color: #1e293b; margin: 0;">1. Resumen de Rendimiento por Símbolo (Ganancia Consolidada)</h2>
+     <div style="display: flex; align-items: flex-start; margin-bottom: 20px;"><span style="font-size: 1.75rem; margin-right: 12px; flex-shrink: 0;">📊</span>
+      <h2 id="section1-title" style="font-size: 1.5rem; font-weight: 700; color: #1e293b; margin: 0; flex: 1;">1. Resumen de Rendimiento por Símbolo (Ganancia Consolidada)</h2>
      </div>
-     <p style="color: #64748b; margin-bottom: 24px; line-height: 1.6;">Esta tabla muestra el resultado total de cada símbolo, consolidando tanto las ganancias por cierres de operaciones como el valor de las posiciones que quedaron abiertas y rentables (Ganancia Flotante). El total de esta columna coincide con la Ganancia Neta Total del Cuadro 2.</p>
+     <p style="color: #475569; margin-bottom: 24px; line-height: 1.6;">Esta tabla muestra el resultado total de cada símbolo, consolidando tanto las ganancias por cierres de operaciones como el valor de las posiciones que quedaron abiertas y rentables (Ganancia Flotante). El total de esta columna coincide con la Ganancia Neta Total del Cuadro 2.</p>
      <div style="overflow-x: auto;">
       <table class="table-custom">
        <thead>
@@ -156,13 +200,13 @@
          <td>4</td>
          <td><strong>CRYPTO:EDENAUSD</strong></td>
          <td>1</td>
-         <td class="negative">-20,74</td>
+         <td style="color: #dc2626; font-weight: 700;">-20,74</td>
          <td>0h 00m 00s</td>
         </tr>
         <tr class="total-row">
          <td colspan="2"><strong>Total</strong></td>
          <td><strong>35</strong></td>
-         <td class="positive"><strong>+2.124,17 EUR</strong></td>
+         <td><strong style="color: #10b981;">+2.124,17 EUR</strong></td>
          <td><strong>N/A</strong></td>
         </tr>
        </tbody>
@@ -173,47 +217,47 @@
     </section><!-- Section 2: Resumen Consolidado -->
     <section class="card" style="padding: 28px; margin-bottom: 28px;">
      <div style="display: flex; align-items: center; margin-bottom: 20px;"><span style="font-size: 1.75rem; margin-right: 12px;">🎯</span>
-      <h2 id="section2-title" style="font-size: 1.5rem; font-weight: 700; color: #1e293b; margin: 0;">2. Resumen de Rendimiento CONSOLIDADO (Competición 69Camp)</h2>
+      <h2 id="section2-title" style="font-size: 1.375rem; font-weight: 700; color: #1e293b; margin: 0; line-height: 1.4;">2. Resumen de Rendimiento CONSOLIDADO (Competición 69Camp)</h2>
      </div>
-     <p style="color: #64748b; margin-bottom: 24px; line-height: 1.6;">Este es el resumen final y definitivo del día, con las cifras que demuestran la evolución de tu fondo:</p>
+     <p style="color: #475569; margin-bottom: 24px; line-height: 1.6;">Este es el resumen final y definitivo del día, con las cifras que demuestran la evolución de tu fondo:</p>
      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-      <div class="metric-card" style="border-left-color: #3b82f6;">
-       <div style="color: #64748b; font-size: 0.875rem; margin-bottom: 6px;">
+      <div class="metric-card">
+       <div style="color: #64748b; font-size: 0.875rem; margin-bottom: 6px; font-weight: 600;">
         Saldo Inicial (Fondo)
        </div>
        <div style="color: #1e293b; font-size: 1.5rem; font-weight: 700;">
         100.000,00 EUR
        </div>
       </div>
-      <div class="metric-card" style="border-left-color: #8b5cf6;">
-       <div style="color: #64748b; font-size: 0.875rem; margin-bottom: 6px;">
+      <div class="metric-card">
+       <div style="color: #64748b; font-size: 0.875rem; margin-bottom: 6px; font-weight: 600;">
         Saldo Final (Equidad Total)
        </div>
        <div style="color: #1e293b; font-size: 1.5rem; font-weight: 700;">
         102.124,37 EUR
        </div>
       </div>
-      <div class="metric-card" style="border-left-color: #059669; background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);">
-       <div style="color: #065f46; font-size: 0.875rem; margin-bottom: 6px;">
+      <div class="metric-card" style="background: #d1fae5; border-color: #10b981;">
+       <div style="color: #065f46; font-size: 0.875rem; margin-bottom: 6px; font-weight: 700;">
         Ganancia Neta Total del Día
        </div>
-       <div style="color: #065f46; font-size: 1.75rem; font-weight: 700;">
+       <div style="color: #10b981; font-size: 1.75rem; font-weight: 700;">
         +2.124,37 EUR
        </div>
       </div>
-      <div class="metric-card" style="border-left-color: #10b981;">
-       <div style="color: #64748b; font-size: 0.875rem; margin-bottom: 6px;">
+      <div class="metric-card">
+       <div style="color: #64748b; font-size: 0.875rem; margin-bottom: 6px; font-weight: 600;">
         Rentabilidad Global del Día
        </div>
-       <div class="positive" style="font-size: 1.5rem; font-weight: 700;">
+       <div style="color: #10b981; font-size: 1.5rem; font-weight: 700;">
         +2,12%
        </div>
       </div>
-      <div class="metric-card" style="border-left-color: #f59e0b;">
-       <div style="color: #64748b; font-size: 0.875rem; margin-bottom: 6px;">
-        Drawdown Máximo de la Cuenta
+      <div class="metric-card">
+       <div style="color: #64748b; font-size: 0.875rem; margin-bottom: 6px; font-weight: 600;">
+        Drawdown M��ximo de la Cuenta
        </div>
-       <div style="color: #1e293b; font-size: 1.5rem; font-weight: 700;">
+       <div style="color: #dc2626; font-size: 1.5rem; font-weight: 700;">
         -0,64%
        </div>
       </div>
@@ -223,8 +267,8 @@
      <div style="display: flex; align-items: center; margin-bottom: 20px;"><span style="font-size: 1.75rem; margin-right: 12px;">📝</span>
       <h2 id="section3-title" style="font-size: 1.5rem; font-weight: 700; color: #1e293b; margin: 0;">Resumen Final y Análisis de Estrategias</h2>
      </div>
-     <div style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); padding: 20px; border-radius: 12px; margin-bottom: 24px; border-left: 4px solid #059669;">
-      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;"><span style="font-size: 1.5rem;">🟢</span>
+     <div style="background: #d1fae5; padding: 20px; border-radius: 0; margin-bottom: 24px; border: 3px solid #059669; box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;"><span style="font-size: 1.5rem;">🏆</span>
        <h3 style="font-size: 1.25rem; font-weight: 700; color: #065f46; margin: 0;">Resultado Final: ¡Estrategias MUY BUENAS!</h3>
       </div>
       <p style="color: #065f46; margin: 0; line-height: 1.6;">La jornada de trading es un éxito rotundo. El día cierra con un incremento en el fondo de <strong>+2.124,37 EUR</strong>, logrando una rentabilidad del <strong>+2,12%</strong>.</p>
@@ -232,22 +276,56 @@
      <h3 style="font-size: 1.125rem; font-weight: 700; color: #1e293b; margin-bottom: 16px;">🧠 Análisis Rápido de Estrategias</h3>
      <div style="margin-bottom: 20px;">
       <h4 style="font-size: 1rem; font-weight: 600; color: #334155; margin-bottom: 12px;">• Estrategia Dominante (BTCUSD y GAIBUSD):</h4>
-      <p style="color: #64748b; line-height: 1.7; margin-bottom: 12px;">La mayor parte de la Ganancia Neta Total proviene de tus posiciones en criptomonedas, tanto cerradas como abiertas. La estrategia es <span class="badge badge-success">MUY BUENA</span> porque combina:</p>
-      <ol style="color: #64748b; line-height: 1.8; padding-left: 24px;">
+      <p style="color: #475569; line-height: 1.7; margin-bottom: 12px;">La mayor parte de la Ganancia Neta Total proviene de tus posiciones en criptomonedas, tanto cerradas como abiertas. La estrategia es <span class="badge badge-success">MUY BUENA</span> porque combina:</p>
+      <ol style="color: #475569; line-height: 1.8; padding-left: 24px;">
        <li>Scalping agresivo y efectivo (30 operaciones en GAIBUSD).</li>
        <li>Mantener ganancias flotantes, lo que indica una buena selección de activos y una correcta gestión de las tendencias (estas ganancias flotantes aportaron cerca de 1.370 EUR al total).</li>
       </ol>
      </div>
      <div style="margin-bottom: 20px;">
       <h4 style="font-size: 1rem; font-weight: 600; color: #334155; margin-bottom: 12px;">• Gestión de Riesgo (Drawdown):</h4>
-      <p style="color: #64748b; line-height: 1.7;">Un retroceso máximo de solo <strong>-0,64%</strong> es <span class="badge badge-success">EXCELENTE</span>. Muestra que las pérdidas fueron muy pequeñas o se gestionaron rápidamente, protegiendo el capital de grandes caídas mientras se generaba una alta rentabilidad.</p>
+      <p style="color: #475569; line-height: 1.7;">Un retroceso máximo de solo <strong>-0,64%</strong> es <span class="badge badge-success">EXCELENTE</span>. Muestra que las pérdidas fueron muy pequeñas o se gestionaron rápidamente, protegiendo el capital de grandes caídas mientras se generaba una alta rentabilidad.</p>
      </div>
-     <div style="background: #f1f5f9; padding: 16px; border-radius: 8px; border-left: 4px solid #3b82f6;">
-      <h4 style="font-size: 1rem; font-weight: 600; color: #1e293b; margin-bottom: 8px;">• Conclusión:</h4>
-      <p style="color: #475569; margin: 0; line-height: 1.7;">Continúa con esta combinación de estrategias. Estás generando una alta rentabilidad con un riesgo muy bajo.</p>
+     <div style="background: #dbeafe; padding: 16px; border-radius: 0; border: 3px solid #2563eb; box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);">
+      <h4 style="font-size: 1rem; font-weight: 600; color: #1e3a8a; margin-bottom: 8px;">• Conclusión:</h4>
+      <p style="color: #1e40af; margin: 0; line-height: 1.7;">Continúa con esta combinación de estrategias. Estás generando una alta rentabilidad con un riesgo muy bajo.</p>
      </div>
     </section>
-   </div>
+   </div><!-- Footer -->
+   <footer class="gradient-bg w-full" style="padding: 32px 24px; margin-top: 48px; border-bottom: none; border-top: 6px solid #1a3009;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+     <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;"><!-- Logo y nombre -->
+      <div style="display: flex; align-items: center; gap: 12px;">
+       <svg width="40" height="40" viewbox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg"><defs>
+         <lineargradient id="goldGradientFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+          <stop offset="50%" style="stop-color:#f59e0b;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+         </lineargradient>
+        </defs> <!-- Marco cuadrado exterior --> <rect x="5" y="5" width="60" height="60" fill="none" stroke="url(#goldGradientFooter)" stroke-width="3" /> <!-- Fondo interior blanco --> <rect x="8" y="8" width="54" height="54" fill="white" opacity="0.95" /> <!-- Letra A geométrica --> <rect x="12" y="20" width="5" height="28" fill="url(#goldGradientFooter)" /> <rect x="25" y="20" width="5" height="28" fill="url(#goldGradientFooter)" /> <rect x="12" y="20" width="18" height="5" fill="url(#goldGradientFooter)" /> <rect x="14" y="32" width="14" height="4" fill="url(#goldGradientFooter)" /> <!-- Símbolo & tradicional --> <text x="31" y="45" font-family="Georgia, serif" font-size="14" font-weight="bold" fill="#64748b" font-style="italic">
+         &amp;
+        </text> <!-- Letra P geométrica --> <rect x="40" y="20" width="5" height="28" fill="url(#goldGradientFooter)" /> <rect x="40" y="20" width="14" height="5" fill="url(#goldGradientFooter)" /> <rect x="40" y="33" width="14" height="5" fill="url(#goldGradientFooter)" /> <rect x="49" y="20" width="5" height="18" fill="url(#goldGradientFooter)" /> <!-- Detalles decorativos en esquinas --> <rect x="11" y="11" width="2" height="2" fill="url(#goldGradientFooter)" opacity="0.7" /> <rect x="57" y="11" width="2" height="2" fill="url(#goldGradientFooter)" opacity="0.7" /> <rect x="11" y="57" width="2" height="2" fill="url(#goldGradientFooter)" opacity="0.7" /> <rect x="57" y="57" width="2" height="2" fill="url(#goldGradientFooter)" opacity="0.7" />
+       </svg>
+       <div>
+        <div style="color: white; font-size: 0.875rem; font-weight: 700; line-height: 1.2;">
+         Abril &amp; Prada Investments
+        </div>
+        <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.625rem; margin-top: 2px; letter-spacing: 1px;">
+         Trading Excellence
+        </div>
+       </div>
+      </div><!-- Info del reporte -->
+      <div style="text-align: right;">
+       <div style="color: rgba(255, 255, 255, 0.9); font-size: 0.938rem; font-weight: 600; margin-bottom: 4px;">
+        Reporte Generado
+       </div>
+       <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.813rem;">
+        © 2025 Abril &amp; Prada Investments
+       </div>
+      </div>
+     </div>
+    </div>
+   </footer>
   </main>
   <script>
         const defaultConfig = {
@@ -256,12 +334,12 @@
             section1_title: "1. Resumen de Rendimiento por Símbolo (Ganancia Consolidada)",
             section2_title: "2. Resumen de Rendimiento CONSOLIDADO (Competición 69Camp)",
             section3_title: "Resumen Final y Análisis de Estrategias",
-            background_color: "#f8fafc",
-            header_color: "#667eea",
+            background_color: "#e2e8f0",
+            header_color: "#3d6b1f",
             card_color: "#ffffff",
             text_color: "#1e293b",
             accent_color: "#059669",
-            font_family: "Inter",
+            font_family: "Chakra Petch",
             font_size: 16
         };
 
@@ -279,10 +357,22 @@
                 dateText.textContent = config.date_text || defaultConfig.date_text;
             }
             if (section1Title) {
-                section1Title.textContent = config.section1_title || defaultConfig.section1_title;
+                const text1 = config.section1_title || defaultConfig.section1_title;
+                const parts1 = text1.match(/^(.*?)\s+(\([^)]+\))$/);
+                if (parts1) {
+                    // Calcular el padding basado en la posición de "Resumen"
+                    const numberAndSpaces = parts1[1].match(/^(\d+\.\s+)/);
+                    const prefixWidth = numberAndSpaces ? numberAndSpaces[1].length : 0;
+                    section1Title.innerHTML = `${parts1[1]}<br><span style="font-size: 0.875rem; font-weight: 500; opacity: 0.8; display: block; padding-left: ${prefixWidth * 0.6}em;">${parts1[2]}</span>`;
+                } else {
+                    section1Title.textContent = text1;
+                }
             }
             if (section2Title) {
-                section2Title.textContent = config.section2_title || defaultConfig.section2_title;
+                const text2 = config.section2_title || defaultConfig.section2_title;
+                // Eliminar el texto entre paréntesis
+                const cleanText2 = text2.replace(/\s*\([^)]+\)\s*$/, '');
+                section2Title.textContent = cleanText2;
             }
             if (section3Title) {
                 section3Title.textContent = config.section3_title || defaultConfig.section3_title;
@@ -295,8 +385,13 @@
             document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
             document.body.style.background = config.background_color || defaultConfig.background_color;
 
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.style.background = config.card_color || defaultConfig.card_color;
+            });
+
             if (competitionTitle) {
-                competitionTitle.style.fontSize = `${baseSize * 2}px`;
+                competitionTitle.style.fontSize = `${baseSize * 2.25}px`;
             }
             if (dateText) {
                 dateText.style.fontSize = `${baseSize * 1.125}px`;
@@ -304,13 +399,15 @@
 
             const allH2 = document.querySelectorAll('h2');
             allH2.forEach(h2 => {
-                h2.style.fontSize = `${baseSize * 1.5}px`;
+                h2.style.fontSize = `${baseSize * 1.375}px`;
                 h2.style.color = config.text_color || defaultConfig.text_color;
+                h2.style.lineHeight = '1.4';
             });
 
             const allH3 = document.querySelectorAll('h3');
             allH3.forEach(h3 => {
                 h3.style.fontSize = `${baseSize * 1.125}px`;
+                h3.style.color = config.text_color || defaultConfig.text_color;
             });
 
             const allH4 = document.querySelectorAll('h4');
@@ -318,7 +415,7 @@
                 h4.style.fontSize = `${baseSize}px`;
             });
 
-            const allP = document.querySelectorAll('p, td, th, li');
+            const allP = document.querySelectorAll('p, td, li');
             allP.forEach(p => {
                 p.style.fontSize = `${baseSize}px`;
             });
@@ -400,5 +497,5 @@
             });
         }
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ace0b0cd5ba0bf3',t:'MTc2NTU1MTEyMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9acefcbd27cb5ac6',t:'MTc2NTU2MTAyMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
